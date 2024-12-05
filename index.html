@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CarbaShop</title>
   <link rel="stylesheet" type="text/css" href="./css/comun.css" />
+  <link rel="stylesheet" type="text/css" href="./css/indexStyles.css" />
+  <script type="text/javascript" src="./script/indexScript.js"></script>
   <!--Adjuntar aquí el resto de archivos css y js-->
 </head>
 
@@ -12,10 +14,10 @@
   <div class="container">
     <h2>Login</h2>
     <form name="formulario" id="formulario">
-      <input type="text" name="nombre" id="nombre" placeholder="Login"/>
+      <input type="text" name="nombre" id="nombre" placeholder="Login" required />
       <div id="error-nombre" class="error-message"></div>
     
-      <input type="password" name="password" id="password" placeholder="Contraseña"/>
+      <input type="password" name="password" id="password" placeholder="Contraseña" required minlength="8" maxlength="16"/>
       <div id="error-password" class="error-message"></div>
       <div id="botones">
           <input type="submit" id="submit" name="enviar" value="Entrar a CarbaShop" />

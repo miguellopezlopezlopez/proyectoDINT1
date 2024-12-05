@@ -1,0 +1,56 @@
+body{
+    background-color: #45880E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75rem;
+    margin: 0;
+}
+.container{
+    text-align: center;
+    border-radius: 1rem;
+    border-color: black;
+    background-color: #FFF7E5;
+    height: 25rem;
+    width: 40rem;
+}
+.container h2{
+    color: #45880E;
+    padding: 2rem;
+}
+input[type="text"],
+input[type="password"]{
+    width: 35rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    border-radius: 1rem;
+    border-style: none;
+    padding: 1rem;
+    
+}
+
+input[type="submit"]{
+    width: 35rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    background-color: #45880E;
+    border-radius: 1em;
+    border-style: none;
+    color: white;
+}
+input[type="submit"]:hover{
+    background-color: #73FF00;
+}
+input[type="button"]:hover{
+    background-color: #73FF00;
+}
+
+input[type="button"]{
+    width: 35rem;
+    height: 3rem;
+    margin-bottom: 1rem;
+    background-color: #45880E;
+    border-radius: 1em;
+    border-style: none;
+    color: white;
+}
