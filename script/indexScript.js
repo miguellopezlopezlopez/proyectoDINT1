@@ -4,6 +4,7 @@ document.addEventListener("DOMContentLoaded", () =>{
     const errorUser = document.getElementById("error-nombre");
     const passInput = document.getElementById("password");
     const errorPass = document.getElementById("error-password");
+    const botonLimpiar = document.getElementById("limpiar");
 
 
 //Validar Nombre Usuario
@@ -12,6 +13,7 @@ function validarUser(user){
     user = user.trim();
     if(!user.trim()){
         errorUser.textContent ="Nombre obligatorio";
+        errorUser.style.display = "block";
         return false;
     }
 
@@ -51,16 +53,42 @@ function validarPassword(password){
 }
 
 
-
-
+//Eventos al perder el foco(blur)
 userInput.addEventListener("blur", () => {
     validarUser(userInput.value);
-  });
+});
 
-  passInput.addEventListener("blur", () => {
+passInput.addEventListener("blur", () => {
     validarPassword(passInput.value);
-  });
+});
 
+ //Validar el formulario completo
+ function Validarformulario(){
+    let valido = true;
 
-  
+    if(!validarUser(userInput.value)){
+        valido = false;
+    } 
+    if(!validarPassword(passInputInput.value)){
+        valido = false;
+    } 
+    return valido;
+ }
+
+ formulario.addEventListener("submit", async (event) =>{
+    event.preventDefault(); //Evita el envío automatico
+
+ })
+
+  // Botoón de Limpiar
+ botonLimpiar.addEventListener("click", () =>{
+    formulario.reset();
+    
+    const mensajes = document.querySelectorAll(".error-message");
+    mensajes.forEach((error)=>{
+        error.textContent = "";
+        error.style.display = "none";
+    })
+ })
+
 });

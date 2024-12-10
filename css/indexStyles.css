@@ -3,7 +3,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 75rem;
+    height: 55rem;
     margin: 0;
 }
 .container{
@@ -53,4 +53,8 @@ input[type="button"]{
     border-radius: 1em;
     border-style: none;
     color: white;
+}
+.error-message{
+    color: red;
+    display: none;
 }
