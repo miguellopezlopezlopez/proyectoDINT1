@@ -1,0 +1,12 @@
+
+main{
+    border-radius: 1rem;
+    background-color: #FFF7E5;
+    height: 75rem;
+    width: 130rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+aside{
+    float: right;
+}

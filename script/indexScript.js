@@ -44,7 +44,7 @@ function validarPassword(password){
     }
     if(password.length > 16 || password.length < 8 || !formatoPass.test(password)) {
         errorPass.textContent = "La contraseña debe tener entre 8 y 16 caracteres y solo puede contener letras, números y los caracteres s ·$%&/().";
-        errorUser.style.display = "block";
+        errorPass.style.display = "block";
         return false;
     }
     errorPass.textContent = "";
@@ -69,7 +69,7 @@ passInput.addEventListener("blur", () => {
     if(!validarUser(userInput.value)){
         valido = false;
     } 
-    if(!validarPassword(passInputInput.value)){
+    if(!validarPassword(passInput.value)){
         valido = false;
     } 
     return valido;
@@ -77,7 +77,9 @@ passInput.addEventListener("blur", () => {
 
  formulario.addEventListener("submit", async (event) =>{
     event.preventDefault(); //Evita el envío automatico
-
+    if(Validarformulario()){
+        location.href = "./main.html"
+    }
  })
 
   // Botoón de Limpiar

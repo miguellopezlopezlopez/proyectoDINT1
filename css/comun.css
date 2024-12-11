@@ -39,3 +39,7 @@ a {
     color: var(--clr-main-light);
     font-size: .85rem;
 }
+body{
+    background-color: #45880E;
+    margin: 0;
+}
