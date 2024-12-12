@@ -7,7 +7,7 @@
     text-align: center;
     border-radius: 1rem;
     border-color: black;
-    background-color: #FFF7E5;
+    background-color: var(--clr-white);
     height: 25rem;
     width: 40rem;
 }
@@ -30,13 +30,13 @@ input[type="submit"]{
     width: 35rem;
     height: 3rem;
     margin-bottom: 1rem;
-    background-color: #45880E;
+    background-color: var(--clr-green);
     border-radius: 1em;
     border-style: none;
     color: white;
 }
 input[type="submit"]:hover{
-    background-color: #73FF00;
+    background-color: var(--clr-main-light);
 }
 input[type="button"]:hover{
     background-color: #73FF00;
