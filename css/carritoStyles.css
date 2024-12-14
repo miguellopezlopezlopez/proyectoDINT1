@@ -70,13 +70,23 @@ main {
 .carrito-producto-precio small,
 .carrito-producto-subtotal small {
     font-size: 0.8rem;
-    color: #888;
+    color: var(--clr-main);
 }
 
 .carrito-producto-titulo h3 {
     margin: 0;
     font-size: 1rem;
-    color: #333;
+    color: var(--clr-main);
+}
+.carrito-producto-cantidad p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--clr-main);
+}
+.carrito-producto-precio p {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--clr-main);
 }
 
 /* Subtotal */
@@ -98,66 +108,58 @@ main {
     color: #c9302c;
 }
 
-/* Contenedor de acciones del carrito */
+/* Botones de acciones del carrito */
 .carrito-acciones {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-top: 2rem;
-    padding: 1rem 2rem;
+    margin-top: 1rem;
+    padding: 1rem;
     background-color: var(--clr-gray);
     border-radius: 10px;
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/* Botón "Vaciar Carrito" */
+/* Botón para vaciar el carrito */
 .carrito-acciones-izquierda button {
-    background-color: var(--clr-gray); /* Fondo gris claro */
-    color: var(--clr-main); /* Texto verde */
-    border: 1px solid var(--clr-border); /* Borde gris */
+    background-color: var(--clr-red); /* Rojo oscuro */
+    color: var(--clr-white);
+    border: none;
     padding: 0.8rem 1.2rem;
-    border-radius: 10px; /* Bordes redondeados */
+    border-radius: 5px;
+    cursor: pointer;
     font-size: 1rem;
     font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .carrito-acciones-izquierda button:hover {
-    background-color: #f0f0f0; /* Fondo más claro en hover */
-    transform: scale(1.05); /* Ligero aumento */
+    background-color: #c9302c; /* Más claro en hover */
+    transform: scale(1.05);
 }
 
-/* Contenedor del total y botón "Comprar Ahora" */
+/* Total y botón de comprar */
 .carrito-acciones-derecha {
     display: flex;
     align-items: center;
     gap: 1rem;
 }
 
-/* Texto del total */
-.carrito-acciones-total {
-    font-size: 1rem;
+.carrito-acciones-total p {
+    font-size: 1.2rem;
+    color: var(--clr-main);
     font-weight: bold;
-    color: var(--clr-main); /* Texto verde */
-    display: flex;
-    align-items: center;
-    background-color: var(--clr-gray); /* Fondo gris claro */
-    padding: 0.8rem 1.2rem;
-    border-radius: 10px; /* Bordes redondeados */
-    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 0;
 }
 
-/* Botón "Comprar Ahora" */
 .carrito-acciones-comprar {
-    background-color: var(--clr-main); /* Fondo verde */
-    color: var(--clr-white); /* Texto blanco */
+    background-color: var(--clr-main); /* Verde oscuro */
+    color: var(--clr-white);
     border: none;
     padding: 0.8rem 1.2rem;
-    border-radius: 10px; /* Bordes redondeados */
-    font-size: 1rem;
-    font-weight: bold;
+    border-radius: 5px;
     cursor: pointer;
+    font-weight: bold;
+    font-size: 1rem;
     transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
@@ -191,11 +193,14 @@ main {
 }
 
 .boton-menu:hover {
-    background-color: var(--clr-main-light);
-    color: var(--clr-white);
+    background-color: var(--clr-white);
+    color: var(--clr-main);
 }
 
 .boton-carrito {
+    background-color: var(--clr-white);
+    color: var(--clr-main);
+    font-weight: bold;
     display: flex;
     justify-content: space-between;
     align-items: center;

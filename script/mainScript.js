@@ -6,6 +6,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const openMenuButton = document.getElementById("open-menu");
     const closeMenuButton = document.getElementById("close-menu");
 
+    const logoHeader = document.getElementById("logo-header");
+    const logoAside = document.getElementById("logo-aside");
+
     let carrito = []; // Carrito inicial
     let productosTotales = []; // Lista de todos los productos
 
@@ -102,13 +105,28 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     // Mostrar menú en pantallas pequeñas
+    const isSmallScreen = () => window.innerWidth <= 600;
+
     openMenuButton.addEventListener("click", () => {
-        menu.classList.add("menu-visible");
+        if (isSmallScreen()) {
+            menu.classList.add("menu-visible");
+        }
     });
 
     // Ocultar menú en pantallas pequeñas
     closeMenuButton.addEventListener("click", () => {
-        menu.classList.remove("menu-visible");
+        if (isSmallScreen()) {
+            menu.classList.remove("menu-visible");
+        }
+    });
+
+    // Detectar cambios de tamaño de la pantalla
+    window.addEventListener("resize", () => {
+        if (!isSmallScreen()) {
+            menu.classList.add("menu-visible"); // Menú siempre visible en pantallas grandes
+        } else {
+            menu.classList.remove("menu-visible"); // Ocultar en pantallas pequeñas
+        }
     });
 
     // Guardar carrito en localStorage
@@ -127,4 +145,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Inicializar carrito desde localStorage al cargar la página
     cargarCarritoLocalStorage();
+
+    // Redirección al hacer clic en los logos
+    const redirigirIndex = () => {
+        window.location.href = "index.html";
+    };
+
+    if (logoHeader) {
+        logoHeader.addEventListener("click", redirigirIndex);
+    }
+    if (logoAside) {
+        logoAside.addEventListener("click", redirigirIndex);
+    }
 });
