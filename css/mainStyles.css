@@ -14,7 +14,7 @@ body {
 
 /* Header */
 .header-mobile {
-    display: none; /* Ocultar para escritorio */
+    display: none;
 }
 
 /* Main */
@@ -24,7 +24,7 @@ main {
     background-color: var(--clr-white);
     border-radius: 15px;
     margin: 2rem;
-    max-width: calc(100% - 22rem); /* Reservar espacio para el menú */
+    max-width: calc(100% - 22rem); 
 }
 
 .titulo-principal {
@@ -37,9 +37,9 @@ main {
 /* Contenedor de productos */
 .contenedor-productos {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 productos por fila */
-    gap: 2rem; /* Espaciado entre productos */
-    padding-right: 2rem; /* Espacio adicional para separar del menú */
+    grid-template-columns: repeat(5, 1fr); 
+    gap: 2rem;
+    padding-right: 2rem; 
 }
 
 /* Producto */
@@ -100,7 +100,7 @@ main {
 /* Aside (Menú lateral) */
 aside {
     width: 20rem;
-    background-color: var(--clr-main); /* Verde */
+    background-color: var(--clr-main); 
     color: var(--clr-white);
     display: flex;
     flex-direction: column;
@@ -109,14 +109,14 @@ aside {
     position: fixed;
     right: 0;
     top: 0;
-    height: 100vh; /* Ocupa toda la altura */
+    height: 100vh; 
     z-index: 1000;
-    transform: translateX(0); /* Visible por defecto en pantallas grandes */
+    transform: translateX(0); 
     transition: transform 0.3s ease-in-out;
 }
 
 aside.menu-visible {
-    transform: translateX(0); /* Mostrar el menú */
+    transform: translateX(0); 
 }
 
 /* Botones del Menú */
@@ -177,7 +177,7 @@ aside.menu-visible {
 
 /* Botón para cerrar el menú */
 .close-menu {
-    display: none; /* Ocultar por defecto */
+    display: none; 
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -189,26 +189,26 @@ aside.menu-visible {
 
 @media (max-width: 850px) {
     aside {
-        transform: translateX(100%); /* Ocultar el menú inicialmente en pantallas pequeñas */
+        transform: translateX(100%); 
     }
 
     aside.menu-visible {
-        transform: translateX(0); /* Mostrar el menú al agregar la clase */
+        transform: translateX(0); 
     }
 
     .close-menu {
-        display: block; /* Mostrar solo en pantallas pequeñas */
+        display: block; 
     }
 
     .contenedor-productos {
-        grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
+        grid-template-columns: repeat(3, 1fr); 
         gap: 1.5rem;
     }
 }
 
 @media (max-width: 600px) {
     .contenedor-productos {
-        grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 1rem;
     }
 
@@ -220,7 +220,7 @@ aside.menu-visible {
 
 @media (max-width: 400px) {
     .contenedor-productos {
-        grid-template-columns: 1fr; /* 1 producto por fila */
+        grid-template-columns: 1fr; 
     }
 }
 

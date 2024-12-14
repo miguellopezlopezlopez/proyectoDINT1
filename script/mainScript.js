@@ -9,10 +9,10 @@ document.addEventListener("DOMContentLoaded", () => {
     const logoHeader = document.getElementById("logo-header");
     const logoAside = document.getElementById("logo-aside");
 
-    let carrito = []; // Carrito inicial
-    let productosTotales = []; // Lista de todos los productos
+    let carrito = []; 
+    let productosTotales = []; 
 
-    // Cargar productos desde productos.json
+    
     fetch("./js/productos.json")
         .then((response) => {
             if (!response.ok) {
@@ -21,16 +21,16 @@ document.addEventListener("DOMContentLoaded", () => {
             return response.json();
         })
         .then((productos) => {
-            productosTotales = productos; // Guardar productos cargados
+            productosTotales = productos; 
             mostrarProductos(productos);
             activarBotonesAgregar(productos);
             activarFiltroCategorias(productos);
         })
         .catch((error) => console.error("Error al cargar los productos:", error));
 
-    // Función para mostrar productos
+
     function mostrarProductos(productos) {
-        productosContainer.innerHTML = ""; // Limpiar contenedor
+        productosContainer.innerHTML = ""; 
         const fragment = document.createDocumentFragment();
 
         productos.forEach((producto) => {
@@ -50,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
         productosContainer.appendChild(fragment);
     }
 
-    // Activar funcionalidad de botones "Agregar"
     function activarBotonesAgregar(productos) {
         const botonesAgregar = document.querySelectorAll(".producto-agregar");
         botonesAgregar.forEach((boton) => {
@@ -65,7 +64,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Agregar producto al carrito
+   
     function agregarAlCarrito(producto) {
         const existeEnCarrito = carrito.find(p => p.id === producto.id);
 
@@ -80,23 +79,23 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Carrito actual:", carrito);
     }
 
-    // Actualizar número del carrito
+
     function actualizarNumeritoCarrito() {
         const totalProductos = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
         carritoNumerito.textContent = totalProductos;
     }
 
-    // Activar filtro por categorías
+
     function activarFiltroCategorias(productos) {
         botonesCategoria.forEach((boton) => {
             boton.addEventListener("click", () => {
-                const categoria = boton.id; // ID del botón de categoría
+                const categoria = boton.id; 
                 const productosFiltrados = categoria === "todos"
                     ? productosTotales
                     : productosTotales.filter(producto => producto.categoria.id === categoria);
 
-                botonesCategoria.forEach(b => b.classList.remove("active")); // Eliminar "active" de todos
-                boton.classList.add("active"); // Marcar botón actual como activo
+                botonesCategoria.forEach(b => b.classList.remove("active")); 
+                boton.classList.add("active"); 
 
                 mostrarProductos(productosFiltrados);
                 activarBotonesAgregar(productosFiltrados);
@@ -104,7 +103,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-    // Mostrar menú en pantallas pequeñas
+ 
     const isSmallScreen = () => window.innerWidth <= 600;
 
     openMenuButton.addEventListener("click", () => {
@@ -113,28 +112,27 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     });
 
-    // Ocultar menú en pantallas pequeñas
     closeMenuButton.addEventListener("click", () => {
         if (isSmallScreen()) {
             menu.classList.remove("menu-visible");
         }
     });
 
-    // Detectar cambios de tamaño de la pantalla
+  
     window.addEventListener("resize", () => {
         if (!isSmallScreen()) {
-            menu.classList.add("menu-visible"); // Menú siempre visible en pantallas grandes
+            menu.classList.add("menu-visible"); 
         } else {
-            menu.classList.remove("menu-visible"); // Ocultar en pantallas pequeñas
+            menu.classList.remove("menu-visible"); 
         }
     });
 
-    // Guardar carrito en localStorage
+ 
     function guardarCarritoLocalStorage() {
         localStorage.setItem("carrito", JSON.stringify(carrito));
     }
 
-    // Cargar carrito desde localStorage
+ 
     function cargarCarritoLocalStorage() {
         const carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
         if (carritoGuardado) {
@@ -143,10 +141,10 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Inicializar carrito desde localStorage al cargar la página
+  
     cargarCarritoLocalStorage();
 
-    // Redirección al hacer clic en los logos
+
     const redirigirIndex = () => {
         window.location.href = "index.html";
     };
