@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let carrito = []; 
     let productosTotales = []; 
 
-    
+    // Cargar productos desde JSON
     fetch("./js/productos.json")
         .then((response) => {
             if (!response.ok) {
@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
         })
         .catch((error) => console.error("Error al cargar los productos:", error));
 
-
+    // Mostrar productos en la página
     function mostrarProductos(productos) {
         productosContainer.innerHTML = ""; 
         const fragment = document.createDocumentFragment();
@@ -50,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
         productosContainer.appendChild(fragment);
     }
 
+    // Activar botones de agregar al carrito
     function activarBotonesAgregar(productos) {
         const botonesAgregar = document.querySelectorAll(".producto-agregar");
         botonesAgregar.forEach((boton) => {
@@ -64,7 +65,7 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
-   
+    // Agregar productos al carrito
     function agregarAlCarrito(producto) {
         const existeEnCarrito = carrito.find(p => p.id === producto.id);
 
@@ -79,13 +80,13 @@ document.addEventListener("DOMContentLoaded", () => {
         console.log("Carrito actual:", carrito);
     }
 
-
+    // Actualizar numerito del carrito
     function actualizarNumeritoCarrito() {
         const totalProductos = carrito.reduce((acc, producto) => acc + producto.cantidad, 0);
         carritoNumerito.textContent = totalProductos;
     }
 
-
+    // Filtrar productos por categoría
     function activarFiltroCategorias(productos) {
         botonesCategoria.forEach((boton) => {
             boton.addEventListener("click", () => {
@@ -103,36 +104,28 @@ document.addEventListener("DOMContentLoaded", () => {
         });
     }
 
- 
-    const isSmallScreen = () => window.innerWidth <= 600;
-
+    // Mostrar y ocultar menú lateral
     openMenuButton.addEventListener("click", () => {
-        if (isSmallScreen()) {
-            menu.classList.add("menu-visible");
-        }
+        menu.classList.add("menu-visible");
     });
 
     closeMenuButton.addEventListener("click", () => {
-        if (isSmallScreen()) {
+        menu.classList.remove("menu-visible");
+    });
+
+    // Ocultar menú en redimensionamiento a pantallas grandes
+    window.addEventListener("resize", () => {
+        if (window.innerWidth >= 850) {
             menu.classList.remove("menu-visible");
         }
     });
 
-  
-    window.addEventListener("resize", () => {
-        if (!isSmallScreen()) {
-            menu.classList.add("menu-visible"); 
-        } else {
-            menu.classList.remove("menu-visible"); 
-        }
-    });
-
- 
+    // Guardar carrito en LocalStorage
     function guardarCarritoLocalStorage() {
         localStorage.setItem("carrito", JSON.stringify(carrito));
     }
 
- 
+    // Cargar carrito desde LocalStorage
     function cargarCarritoLocalStorage() {
         const carritoGuardado = JSON.parse(localStorage.getItem("carrito"));
         if (carritoGuardado) {
@@ -141,10 +134,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-  
-    cargarCarritoLocalStorage();
-
-
+    // Redirigir a la página principal (index.html)
     const redirigirIndex = () => {
         window.location.href = "index.html";
     };
@@ -155,4 +145,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (logoAside) {
         logoAside.addEventListener("click", redirigirIndex);
     }
+
+    // Cargar carrito al iniciar
+    cargarCarritoLocalStorage();
 });
