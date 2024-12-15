@@ -2,10 +2,11 @@
     display: flex;
     flex-wrap: nowrap;
     min-height: 100vh;
-    flex-direction: column-reverse;
 }
 
+/* Header */
 .header-mobile {
+    display: none; /* Ocultar para escritorio */
     display: none;
 }
 
@@ -16,20 +17,26 @@ main {
     background-color: var(--clr-white);
     border-radius: 15px;
     margin: 2rem;
+    max-width: calc(100% - 22rem); /* Reservar espacio para el menú */
+    max-width: calc(100% - 22rem); 
 }
 
 .titulo-principal {
     font-size: 2rem;
     font-weight: bold;
     margin-bottom: 2rem;
-    color: var(--clr-main);
+    color: var(--clr-main); 
 }
 
+/* Contenedor de productos */
 .contenedor-productos {
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(5, 1fr); /* 5 productos por fila */
+    gap: 2rem; /* Espaciado entre productos */
+    padding-right: 2rem; /* Espacio adicional para separar del menú */
+    grid-template-columns: repeat(5, 1fr); 
     gap: 2rem;
-    padding-right: 2rem;
+    padding-right: 2rem; 
 }
 
 /* Producto */
@@ -90,7 +97,8 @@ main {
 /* Aside (Menú lateral) */
 aside {
     width: 20rem;
-    background-color: var(--clr-main);
+    background-color: var(--clr-main); /* Verde */
+    background-color: var(--clr-main); 
     color: var(--clr-white);
     display: flex;
     flex-direction: column;
@@ -99,18 +107,17 @@ aside {
     position: fixed;
     right: 0;
     top: 0;
-    height: 100vh;
+    height: 100vh; /* Ocupa toda la altura */
+    height: 100vh; 
     z-index: 1000;
-    transform: translateX(0);
+    transform: translateX(0); /* Visible por defecto en pantallas grandes */
+    transform: translateX(0); 
     transition: transform 0.3s ease-in-out;
 }
 
 aside.menu-visible {
-    transform: translateX(0);
-}
-
-aside.hidden {
-    transform: translateX(100%);
+    transform: translateX(0); /* Mostrar el menú */
+    transform: translateX(0); 
 }
 
 /* Botones del Menú */
@@ -126,6 +133,7 @@ aside.hidden {
     border: none;
     width: 100%;
     padding: 1rem;
+
     text-align: left;
     border-radius: 8px;
     cursor: pointer;
@@ -145,7 +153,8 @@ aside.hidden {
     margin-top: 2rem;
     display: flex;
     background-color: var(--clr-white);
-    color: var(--clr-main);
+    color: var(--clr-main)
+
 }
 
 .numerito {
@@ -157,22 +166,20 @@ aside.hidden {
     font-size: 0.8rem;
     margin-left: auto;
 }
-
-.bi-hand-index-thumb-fill {
+.bi-hand-index-thumb-fill{
     transform: rotate(90deg);
 }
-
-.bi-hand-index-thumb {
+.bi-hand-index-thumb{
     transform: rotate(90deg);
 }
-
-.bi {
+.bi{
     margin-right: 1rem;
 }
 
 /* Botón para cerrar el menú */
 .close-menu {
-    display: none;
+    display: none; /* Ocultar por defecto */
+    display: none; 
     background: none;
     border: none;
     font-size: 1.5rem;
@@ -182,104 +189,46 @@ aside.hidden {
     margin-bottom: 1rem;
 }
 
-/* Botón para abrir el menú */
-.open-menu {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    color: var(--clr-white);
-    cursor: pointer;
-}
-
-/* Media Queries */
 @media (max-width: 850px) {
-    .contenedor {
-        flex-direction: column;
-    }
-
     aside {
-        width: 100%;
-        height: auto;
-        position: relative;
-        transform: translateX(0);
+        transform: translateX(100%); /* Ocultar el menú inicialmente en pantallas pequeñas */
+        transform: translateX(100%); 
     }
 
     aside.menu-visible {
-        transform: translateX(0);
+        transform: translateX(0); /* Mostrar el menú al agregar la clase */
+        transform: translateX(0); 
     }
 
     .close-menu {
-        display: block;
+        display: block; /* Mostrar solo en pantallas pequeñas */
+        display: block; 
     }
 
     .contenedor-productos {
-        grid-template-columns: repeat(3, 1fr);
-        gap: 1.5rem;
-    }
-}
-
-@media (max-width: 675px) {
-    aside {
-        transform: translateX(100%);
-    }
-
-    aside.menu-visible {
-        transform: translateX(0);
-    }
-
-    .open-menu {
-        display: block;
-    }
-
-    .contenedor-productos {
-        grid-template-columns: repeat(3, 1fr);
+        grid-template-columns: repeat(3, 1fr); /* 3 productos por fila */
+        grid-template-columns: repeat(3, 1fr); 
         gap: 1.5rem;
     }
 }
 
 @media (max-width: 600px) {
-    aside {
-        transform: translateX(100%);
-    }
-
-    aside.menu-visible {
-        transform: translateX(0);
-    }
-
-    .open-menu {
-        display: block;
-    }
-
-    .close-menu {
-        display: block;
-    }
-
     .contenedor-productos {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(2, 1fr); /* 2 productos por fila */
+        grid-template-columns: repeat(2, 1fr); 
         gap: 1rem;
+    }
+
+    aside {
+        height: auto;
+        position: relative;
     }
 }
 
 @media (max-width: 400px) {
-    aside {
-        transform: translateX(100%);
-    }
-
-    aside.menu-visible {
-        transform: translateX(0);
-    }
-
-    .open-menu {
-        display: block;
-    }
-
-    .close-menu {
-        display: block;
-    }
-
     .contenedor-productos {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* 1 producto por fila */
+        grid-template-columns: 1fr; 
     }
 }
 
